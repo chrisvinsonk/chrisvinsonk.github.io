@@ -96,38 +96,34 @@
         <div class="cloud"></div>
         <div class="cloud"></div>
         <h1>🫶</h1>
+        <h1>Hi Love</h1>
         <p id="greeting"></p>
         <p id="date"></p>
     </div>
 
     <script>
-        const greetings = [
-            "Hi Jiya"
-            // "Rise and shine!",
-            // "Have a fantastic day ahead!",
-            // "Wishing you a wonderful morning!",
-            // "May your day be filled with joy!",
-            // "Good morning, sunshine!",
-            // "Here's to a great day!",
-            // "Sending you positive vibes for the day!",
-            // "Hope your day is as amazing as you are!",
-            // "Start your day with a smile!",
-            // "Embrace the new day with open arms!"
-        ];
+        // Function to fetch love quotes from an API
+        async function fetchLoveQuote() {
+    try {
+        const response = await fetch('https://api.quotable.io/quotes?tags=love');
+        const data = await response.json();
+        const randomQuote = data.results[Math.floor(Math.random() * data.results.length)];
+        document.getElementById('greeting').textContent = randomQuote.content;
+    } catch (error) {
+        console.error('Error fetching the love quote:', error);
+        document.getElementById('greeting').textContent = "Hi Jiya"; // Fallback greeting
+    }
+}
 
-        function getRandomGreeting() {
-            const index = Math.floor(Math.random() * greetings.length);
-            return greetings[index];
-        }
 
         function updateGreeting() {
-            const greetingElement = document.getElementById('greeting');
             const dateElement = document.getElementById('date');
-            
-            greetingElement.textContent = getRandomGreeting();
             dateElement.textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            
-            // Trigger animation
+
+            fetchLoveQuote(); // Fetch the new love quote on page load
+
+            // Trigger animation for the greeting
+            const greetingElement = document.getElementById('greeting');
             greetingElement.style.opacity = '0';
             greetingElement.style.transform = 'translateY(20px)';
             setTimeout(() => {
@@ -140,12 +136,17 @@
         updateGreeting();
 
         // Update greeting every day at midnight
-        setInterval(() => {
+        function updateAtMidnight() {
             const now = new Date();
-            if (now.getHours() === 0 && now.getMinutes() === 0) {
+            const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime();
+            
+            setTimeout(() => {
                 updateGreeting();
-            }
-        }, 60000); // Check every minute
+                setInterval(updateGreeting, 86400000); // 24 hours in milliseconds
+            }, msUntilMidnight);
+        }
+
+        updateAtMidnight();
     </script>
 </body>
 </html>
