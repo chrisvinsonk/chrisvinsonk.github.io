@@ -67,13 +67,13 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
+<!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
   <div class="hero-container" data-aos="fade-in">
     <h1>Chris Vinson Kunnankada</h1>
     <p>I'm <span class="typed" data-typed-items=" a Developer, a Programmer, a Machine Learning Enthusiast, a Curious Learner "></span></p>
     <div class="mt-4">
-      <a href="https://drive.google.com/file/d/1Z4NVDw-YosKrQXhVBVo_1nQTE0JizrX3/view" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-resume">
+      <a href="assets/Chris_Resume.pdf" download="Chris_Vinson_Resume.pdf" class="btn btn-outline-light btn-resume" id="downloadResumeBtn">
         Download Resume
       </a>
     </div>
@@ -88,32 +88,43 @@
   </button>
 </section><!-- End Hero -->
 
+
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>About</h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 square-container" data-aos="fade-right">
-            <div class="square-content">
-              <img src="assets/img/about.jpg" class="img-fluid about-img" alt="Chris Vinson Kunnankada">
-            </div>
-          </div>
-          <div class="col-lg-6 square-container" data-aos="fade-left">
-            <div class="square-content">
-              <div class="about-text">
-                <p>Chris Vinson Kunnankada here! I'm a recent AI and Machine Learning graduate with expertise in Python, SQL, and AWS. I've worked on innovative projects, including a communication platform with accessibility features and deep learning music generation. Passionate about tech, I'm always eager to take on new challenges.</p>
-                <p>Let's connect!</p>
-              </div>
-              <img src="assets/img/additional-about.jpg" class="img-fluid additional-img" alt="Additional About Image">
-            </div>
-          </div>
+   <!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>About</h2>
+    </div>
+    <div class="row">
+      <!-- Left side with the image -->
+      <div class="col-lg-6 square-container" data-aos="fade-right">
+        <div class="square-content">
+          <img src="assets/img/about.jpg" class="img-fluid about-img" alt="Chris Vinson Kunnankada">
         </div>
       </div>
-    </section><!-- End About Section -->
+
+      <!-- Right side with the Lottie animation -->
+      <div class="col-lg-6 square-container" data-aos="fade-left">
+        <div class="square-content">
+          <div id="lottie-animation-1" class="lottie-animation"></div>
+          <div>
+          <br>
+          <br>
+          </div>
+          <div class="about-text">
+            <p>Chris Vinson Kunnankada here! I'm a recent Artificial Intelligence and Machine Learning graduate with expertise in Python, Java, SQL, and AWS. I've worked on innovative projects, while leveraging my software development, machine learning and deep learning skills. Passionate about tech, I'm always eager to take on new challenges.</p>
+            <p>Let's connect!</p>
+          </div>
+          <div id="lottie-animation-2" class="lottie-animation"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End About Section -->
+
+    <!-- End About Section -->
 
     <!-- ======= Skills Section ======= -->
     <section id="skills" class="skills section-bg">
@@ -166,6 +177,14 @@
               <li>
                 <img src="assets/img/data-analysis-logo.png" alt="Data Analysis logo" class="skill-logo">
                 <span class="skill">Data Analysis</span>
+              </li>
+              <li>
+                <img src="assets/img/power-bi-logo.png" alt="Power BI logo" class="skill-logo">
+                <span class="skill">Power BI</span>
+              </li>
+              <li>
+                <img src="assets/img/cloud-logo.png" alt="Cloud Computing logo" class="skill-logo">
+                <span class="skill">Cloud Computing</span>
               </li>
               <li>
                 <img src="assets/img/web-development-logo.png" alt="Web Development logo" class="skill-logo">
@@ -441,6 +460,46 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('downloadResumeBtn').addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default anchor behavior
+  
+      // Trigger download of the resume
+      const downloadLink = document.createElement('a');
+      downloadLink.href = 'assets/Chris_Resume.pdf'; // File path
+      downloadLink.download = 'Chris_Vinson_Resume.pdf'; // Download as
+      downloadLink.click();
+  
+      // Open the Google Drive link
+      window.open('https://drive.google.com/file/d/1Z4NVDw-YosKrQXhVBVo_1nQTE0JizrX3/view', '_blank');
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+
+<!-- Lottie.js for Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+<script>
+  // Load the first Lottie animation
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-animation-1'), // ID of the first animation container
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'assets/3d/Animation - 1728771107921.json' // Replace with the path to your first Lottie JSON file
+  });
+
+  // Load the second Lottie animation
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-animation-2'), // ID of the second animation container
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'assets/3d/Animation - 1728770760503.json' // Replace with the path to your second Lottie JSON file
+  });
+</script>
 
 </body>
 
