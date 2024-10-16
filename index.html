@@ -482,18 +482,23 @@
   <script src="assets/js/main.js"></script>
   <script>
     document.getElementById('downloadResumeBtn').addEventListener('click', function (event) {
-      event.preventDefault(); // Prevent the default anchor behavior
-  
-      // Trigger download of the resume
-      const downloadLink = document.createElement('a');
-      downloadLink.href = 'https://github.com/chrisvinsonk/resume/blob/main/Chris_Resume.pdf'; // File path
-      downloadLink.download = 'Chris_Vinson_Resume.pdf'; // Download as
-      downloadLink.click();
-  
-      // Open the Google Drive link
-      window.open('https://drive.google.com/file/d/1Z4NVDw-YosKrQXhVBVo_1nQTE0JizrX3/view', '_blank');
+        event.preventDefault(); // Prevent the default anchor behavior
+
+        // Open the GitHub PDF in a new tab (to view)
+        window.open('https://github.com/chrisvinsonk/resume/blob/main/Chris_Resume.pdf', '_blank');
+
+        // Trigger download of the resume from the raw GitHub URL
+        const downloadLink = document.createElement('a');
+        downloadLink.href = 'https://github.com/chrisvinsonk/resume/raw/main/Chris_Resume.pdf'; // Raw file path
+        downloadLink.setAttribute('download', 'Chris_Vinson_Resume.pdf'); // Set download filename
+        downloadLink.click();
+
+        // Optionally open the Google Drive link in a new tab
+        window.open('https://drive.google.com/file/d/1Z4NVDw-YosKrQXhVBVo_1nQTE0JizrX3/view', '_blank');
     });
-  </script>
+</script>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
